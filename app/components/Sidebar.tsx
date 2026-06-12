@@ -47,9 +47,10 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* BOTÓN MOBILE */}
-      <div className="md:hidden p-4 bg-slate-900 text-white flex justify-between items-center">
-        <h1 className="font-bold">Menu</h1>
+      {/* BOTÓN MÓVIL */}
+      <div className="md:hidden flex items-center justify-between p-4 bg-slate-950 text-white border-b border-slate-800">
+        <h1 className="font-bold text-white">Menú</h1>
+
         <button onClick={() => setOpen(!open)}>
           {open ? <X /> : <Menu />}
         </button>
@@ -61,7 +62,7 @@ export default function Sidebar() {
         fixed md:static z-50
         top-0 left-0
         w-72 min-h-screen
-        bg-slate-900 text-white
+        bg-slate-900 text-slate-100
         border-r border-slate-800
         flex flex-col
         transition-transform duration-300
@@ -77,8 +78,10 @@ export default function Sidebar() {
           />
 
           <div>
-            <h1 className="text-xl font-bold">Technology School🎓</h1>
-            <p className="text-slate-400 text-sm">
+            <h1 className="text-lg font-bold text-white">
+              Technology School🎓
+            </h1>
+            <p className="text-slate-200 text-sm">
               Sistema de Gestión Escolar
             </p>
           </div>
@@ -99,14 +102,16 @@ export default function Sidebar() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition ${
+                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                       isActive
-                        ? "bg-blue-600 text-white"
-                        : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        ? "bg-blue-500 text-white font-semibold"
+                        : "text-slate-100 hover:bg-slate-700 hover:text-white"
                     }`}
                   >
                     <Icon size={20} />
-                    <span>{item.title}</span>
+                    <span className="text-sm md:text-base">
+                      {item.title}
+                    </span>
                   </Link>
                 </li>
               );
@@ -114,16 +119,18 @@ export default function Sidebar() {
           </ul>
         </nav>
 
-        {/* USER */}
+        {/* USUARIO */}
         <div className="p-4 border-t border-slate-800">
           <div className="bg-slate-800 rounded-xl p-4 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center font-bold text-white">
               A
             </div>
 
             <div>
-              <p className="font-medium">Administrador</p>
-              <p className="text-xs text-slate-400">
+              <p className="font-medium text-white">
+                Administrador
+              </p>
+              <p className="text-xs text-slate-200">
                 admin@colegio.edu.pe
               </p>
             </div>
